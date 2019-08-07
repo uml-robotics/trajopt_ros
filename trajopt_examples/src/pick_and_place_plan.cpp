@@ -169,10 +169,8 @@ int main(int argc, char** argv)
     std::shared_ptr<trajopt::JointVelTermInfo> jv(new trajopt::JointVelTermInfo);
 
     // Taken from iiwa documentation (radians/s) and scaled by 0.8
-    std::vector<double> vel_lower_lim{ 1.71 * -0.8, 1.71 * -0.8, 1.75 * -0.8, 2.27 * -0.8,
-                                       2.44 * -0.8, 3.14 * -0.8, 3.14 * -0.8 };
-    std::vector<double> vel_upper_lim{ 1.71 * 0.8, 1.71 * 0.8, 1.75 * 0.8, 2.27 * 0.8,
-                                       2.44 * 0.8, 3.14 * 0.8, 3.14 * 0.8 };
+    std::vector<double> vel_lower_lim{ 1.71 * -0.8, 1.71 * -0.8, 1.75 * -0.8, 2.27 * -0.8, 2.44 * -0.8, 3.14 * -0.8, 3.14 * -0.8 };
+    std::vector<double> vel_upper_lim{ 1.71 * 0.8, 1.71 * 0.8, 1.75 * 0.8, 2.27 * 0.8, 2.44 * 0.8, 3.14 * 0.8, 3.14 * 0.8 };
 
     jv->targets = std::vector<double>(7, 0.0);
     jv->coeffs = std::vector<double>(7, 50.0);

@@ -158,6 +158,7 @@ int main(int argc, char** argv)
   bool success = env_->init(urdf_model_, srdf_model_);
   assert(success);
 
+  //J - get real point cloud here
   pcl::PointCloud<pcl::PointXYZ> full_cloud;
   double delta = 0.05;
   int length = static_cast<int>(1 / delta);
@@ -172,6 +173,7 @@ int main(int argc, char** argv)
   sensor_msgs::PointCloud2 pointcloud_msg;
   pcl::toROSMsg(full_cloud, pointcloud_msg);
 
+  //J- build octomap based on point cloud
   octomap::Pointcloud octomap_data;
   octomap::pointCloud2ToOctomap(pointcloud_msg, octomap_data);
   octomap::OcTree* octree = new octomap::OcTree(2 * delta);
